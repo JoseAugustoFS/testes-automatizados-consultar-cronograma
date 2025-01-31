@@ -17,7 +17,7 @@ export class ConsultarCronogramaController implements IController {
     async handle(req: Request, resp: Response): Promise<void> {
 
         if (!this.validar(req)) {
-            resp.status(400).json({ error: "disciplinaId é obrigatório" });
+            resp.status(400).json({ error: "disciplinaId é obrigatório e precisa ser um número" });
         } else {
 
             const { disciplinaId } = req.params;
@@ -48,7 +48,10 @@ export class ConsultarCronogramaController implements IController {
             return false
         }
         const { disciplinaId } = req.params;
-        if (!disciplinaId || typeof disciplinaId !== "number" || disciplinaId < 0 || disciplinaId % 1 !== 0) {
+        if(isNaN(Number(disciplinaId))){
+            return false;
+        }
+        if(!Number(disciplinaId) || Number(disciplinaId) < 0 || Number(disciplinaId) % 1 !== 0) {
             return false;
         }
         return true;
