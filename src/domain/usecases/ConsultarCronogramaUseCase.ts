@@ -2,7 +2,7 @@ import { ICronograma } from "../entities/Cronograma";
 import { IUseCase } from "../../contracts/IUseCase";
 
 export interface IEntradaConsultarCronograma {
-    disciplinaId: string;
+    disciplinaId: number;
 }
 
 export interface ISaidaConsultarCronograma {

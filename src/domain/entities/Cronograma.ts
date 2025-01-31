@@ -1,4 +1,4 @@
 export interface ICronograma {
-    disciplinaId: string;
+    disciplinaId: number;
     atividades: { data: string; descricao: string }[];
 }
