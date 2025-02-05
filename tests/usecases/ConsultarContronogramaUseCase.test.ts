@@ -23,7 +23,7 @@ class RepositoryFake implements IRepository<ICronograma> {
                     atividades: [{ data: "2025-02-03", descricao: "Teste" }]
                 } as unknown as ICronograma);
         }if(this.opcao === 'falta cronograma') {
-            return Promise.resolve({} as unknown as ICronograma);
+            return Promise.resolve(undefined);
         }if(this.opcao === 'erro'){
             throw new Error('Teste');
         }else {
