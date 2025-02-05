@@ -78,7 +78,7 @@ function makeSUT(disciplinaId: any, opcao: string) {
     return { uc, controller, requestStub, responseFake };
 }
 
-describe('ControllerBasico', () => {
+describe('ConsultarCronogramaController', () => {
     
     it('deve instanciar ConsultarCronogramaController', () => {
         let { uc, controller, requestStub, responseFake } = makeSUT('1', "certo");

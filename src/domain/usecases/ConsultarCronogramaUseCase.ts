@@ -20,7 +20,7 @@ export class ConsultarCronogramaUseCase implements IUseCase<IEntradaConsultarCro
     async perform(entrada: IEntradaConsultarCronograma): Promise<ISaidaConsultarCronograma> {
 
         if(entrada.disciplinaId>50){ //A instituição só possui 50 disciplinas cadastradas
-            throw new Error('O id da disciplina não pode ser maior que 49');
+            throw new Error('O id da disciplina não pode ser maior que 50');
         }
 
         let cronograma: ICronograma | undefined;
