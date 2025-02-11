@@ -1,9 +1,9 @@
-import { IRepository } from "contracts/IRepository";
+import { IRepositoryFind } from "contracts/IRepository";
 import { ICronograma } from "domain/entities/Cronograma";
 import { ConsultarCronogramaUseCase, IEntradaConsultarCronograma } from "../../src/domain/usecases/ConsultarCronogramaUseCase";
 
 
-class RepositoryFake implements IRepository<ICronograma> {
+class RepositoryFake implements IRepositoryFind<ICronograma> {
     private opcao: string;
     constructor(opcao: string){
         this.opcao=opcao;

@@ -1,6 +1,6 @@
 import { ICronograma } from "../entities/Cronograma";
 import { IUseCase } from "../../contracts/IUseCase";
-import { IRepository } from "contracts/IRepository";
+import { IRepositoryFind } from "contracts/IRepository";
 
 export interface IEntradaConsultarCronograma {
     disciplinaId: number;
@@ -11,8 +11,8 @@ export interface ISaidaConsultarCronograma {
 }
 
 export class ConsultarCronogramaUseCase implements IUseCase<IEntradaConsultarCronograma, ISaidaConsultarCronograma> {
-    private repo: IRepository<ICronograma>;
-    constructor(repo: IRepository<ICronograma>) {
+    private repo: IRepositoryFind<ICronograma>;
+    constructor(repo: IRepositoryFind<ICronograma>) {
         this.repo = repo;
         console.log('ConsultarCronogramaUseCase instanciado');
     }
