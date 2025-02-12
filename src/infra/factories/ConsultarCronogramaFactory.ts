@@ -1,6 +1,7 @@
 import { ConsultarCronogramaUseCase } from "../../domain/usecases/ConsultarCronogramaUseCase";
 import { ConsultarCronogramaController } from "../../controllers/ConsultarCronogramaController";
-import { BancoDeDados, ConsultarCronogramaRepository } from "../../data/repositories/ConsultarCronogramaRepository";
+import { ConsultarCronogramaRepository } from "../../data/repositories/ConsultarCronogramaRepository";
+import { BancoDeDados } from "../../data/dataBase/BancoDeDados";
 
 export function factoryConsultarCronograma() {
     const repository = new ConsultarCronogramaRepository(new BancoDeDados);
