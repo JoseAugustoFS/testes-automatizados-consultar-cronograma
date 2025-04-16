@@ -11,32 +11,35 @@ export class ConsultarCronogramaRepository implements IRepositoryFind<ICronogram
         this.bd = bd;
     }
 
-    findAll(): Promise<ICronograma[]> {
+    async findAll(): Promise<ICronograma[]> {
         try{
-            let result = this.bd.query("SELECT * FROM cronograma;", null) as ICronograma[];
-                if (!result) {
-                    new Error("Nenhum cronograma encontrado");
-                }
+            let result = await this.bd.query("SELECT * FROM cronograma;", null);
+            if (!result) {
+                new Error("Nenhum cronograma encontrado");
+            }else{
                 if (result.length == 0) {
                     new Error("Nenhum cronograma encontrado");
                 }
-            return Promise.resolve(result as unknown as ICronograma[]);
+                return Promise.resolve(result as unknown as ICronograma[]);
+            }
+            return Promise.resolve([]);
         }catch(e){
             return Promise.resolve([]);
         }
     }
 
-    findById(id: string): Promise<ICronograma | undefined> {
+    async findById(id: string): Promise<ICronograma | undefined> {
 
         try{
-            let result = this.bd.query("SELECT * FROM cronograma where id =$id;", null) as ICronograma[];
+            let result = await this.bd.query("SELECT * FROM cronograma where id = $id;", id);
             if (!result) {
                 new Error("Nenhum cronograma encontrado");
+            }else{
+                if (result.length == 0) {
+                    new Error("Nenhum cronograma encontrado");
+                }
+                return Promise.resolve(result.shift() as unknown as ICronograma);
             }
-            if (result.length == 0) {
-                new Error("Nenhum cronograma encontrado");
-            }
-            return Promise.resolve(result.shift() as unknown as ICronograma);
         }catch(e){
             return Promise.resolve(undefined);
         }
