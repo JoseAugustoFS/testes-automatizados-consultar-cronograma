@@ -5,6 +5,6 @@ import { routerBasico } from '../src/infra/routes/exemplo_router'
 const app = express()
 
 app.use(express.json())
-app.use(routerBasico)
+app.use('/', routerBasico)
 
 export const handler = serverless(app)
