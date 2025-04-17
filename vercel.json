@@ -14,7 +14,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "api/index.ts"
+        "dest": "src/infra/routes/exemplo_router.ts"
       }
     ]
   }
